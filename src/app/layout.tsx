@@ -1,5 +1,12 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter } from 'next/font/google';
 import '@/styles/global.css';
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   icons: [
@@ -33,7 +40,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html lang="pl">
+    <html className={inter.variable} lang="pl">
       <body>
         <main>{props.children}</main>
       </body>

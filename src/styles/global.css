@@ -1,1 +1,95 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary-50: #eef0ff;
+  --color-primary-100: #e0e3ff;
+  --color-primary-200: #c6caff;
+  --color-primary-300: #a4a7fd;
+  --color-primary-400: #8580f9;
+  --color-primary-500: #7262f2;
+  --color-primary-600: #6d50e8;
+  --color-primary-700: #5637cb;
+  --color-primary-800: #462fa4;
+  --color-primary-900: #3b2d82;
+  --color-primary-950: #241b4b;
+
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f2f5f8;
+  --color-neutral-200: #e3e8ef;
+  --color-neutral-300: #cdd5df;
+  --color-neutral-400: #97a3b5;
+  --color-neutral-500: #6f7d92;
+  --color-neutral-600: #4a5566;
+  --color-neutral-700: #364152;
+  --color-neutral-800: #202939;
+  --color-neutral-900: #111828;
+  --color-neutral-950: #040715;
+
+  --color-secondary-orange-50: #fff7ed;
+  --color-secondary-orange-100: #ffedd5;
+  --color-secondary-orange-200: #fed7aa;
+  --color-secondary-orange-300: #fdba74;
+  --color-secondary-orange-400: #fb923c;
+  --color-secondary-orange-500: #f97316;
+  --color-secondary-orange-600: #ea580c;
+  --color-secondary-orange-700: #c2410c;
+  --color-secondary-orange-800: #9a3412;
+  --color-secondary-orange-900: #7c2d12;
+  --color-secondary-orange-950: #431407;
+
+  --color-party-pis: #1d4ed8;
+  --color-party-ko: #f97316;
+  --color-party-polska-2050: #facc15;
+  --color-party-psl: #2fa052;
+  --color-party-lewica: #db2777;
+  --color-party-konfederacja: #1e2f50;
+  --color-party-niezrzeszeni: #a3aec2;
+
+  --text-h1: 1.875rem;
+  --text-h1--line-height: 1.2;
+  --text-h1--font-weight: 700;
+  --text-h2: 1.5rem;
+  --text-h2--line-height: 1.25;
+  --text-h2--font-weight: 700;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+  --text-h3--font-weight: 600;
+  --text-name: 1.375rem;
+  --text-name--line-height: 1.25;
+  --text-name--font-weight: 700;
+  --text-stat: 2rem;
+  --text-stat--line-height: 1.2;
+  --text-stat--font-weight: 700;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.5;
+  --text-body--font-weight: 400;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.5;
+  --text-body-sm--font-weight: 400;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--font-weight: 500;
+  --text-button: 0.9375rem;
+  --text-button--line-height: 1.4;
+  --text-button--font-weight: 600;
+}
+
+@layer base {
+  body {
+    @apply bg-neutral-50 font-sans text-neutral-800 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-neutral-900;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-300;
+  }
+}

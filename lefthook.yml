@@ -1,3 +1,6 @@
+# Load PATH for GUI git clients
+rc: ./.lefthookrc
+
 # Validate commit messages
 commit-msg:
   jobs:

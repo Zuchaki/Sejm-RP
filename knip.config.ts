@@ -10,6 +10,8 @@ const config: KnipConfig = {
   // The lefthook plugin's usage detection is environment-dependent (installed .git/hooks locally vs none on CI),
   // so it's disabled and `ignoreDependencies` is the single source of truth.
   lefthook: false,
+  // Shared UI primitives ship a full API surface; not every export is wired up yet
+  ignore: ['src/components/ui/**'],
   compilers: {
     css: (text: string) => [...text.matchAll(/(?<=@)import[^;]+/gu)].join('\n'),
   },

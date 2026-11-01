@@ -1,3 +1,9 @@
+import { Text } from '@/components/ui/text';
+
 export default function HomePage() {
-  return <h1 className="p-8 text-3xl font-bold">Sejm RP</h1>;
+  return (
+    <Text as="h1" variant="h1" className="p-8">
+      Sejm RP
+    </Text>
+  );
 }

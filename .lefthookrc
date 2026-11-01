@@ -1,0 +1,2 @@
+# Make Node available when git runs from GUI clients with a minimal PATH
+export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"

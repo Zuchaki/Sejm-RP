@@ -7,6 +7,9 @@ const baseConfig: NextConfig = {
     position: 'bottom-right',
   },
   poweredByHeader: false,
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: 'api.sejm.gov.pl', pathname: '/sejm/**' }],
+  },
   reactStrictMode: true,
   reactCompiler: process.env.NODE_ENV === 'production', // Keep the development environment fast
   experimental: {

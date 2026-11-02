@@ -12,7 +12,7 @@ const layout = {
   wallColumn: { seatCount: 3, firstSeatOffset: 11.5, seatSpacing: 15.5 },
   sectionEdgeGap: 10,
   aisleWidth: 36,
-  seatSize: 13.8,
+  seatSize: 15,
   missingSeatNumbers: [61, 62, 63],
   renamedSeatNumbers: new Map([[285, 5]]),
 };

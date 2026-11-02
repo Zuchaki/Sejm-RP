@@ -63,6 +63,11 @@
     "github-actions-workflow"
   ],
 
+  // Data files start with a comment, so treat them as JSON with comments
+  "files.associations": {
+    "**/src/data/*.json": "jsonc"
+  },
+
   // JSON Schema
   "json.schemaDownload.trustedDomains": {
     "https://ui.shadcn.com": true

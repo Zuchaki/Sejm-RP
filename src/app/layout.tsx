@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header';
 import '@/styles/global.css';
 
 const inter = Inter({
@@ -9,6 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  title: 'Sejm RP — interaktywny przewodnik po Sejmie',
+  description:
+    'Interaktywna mapa sali posiedzeń, profile posłów, wyniki głosowań i statystyki Sejmu Rzeczypospolitej Polskiej.',
   icons: [
     {
       rel: 'apple-touch-icon',
@@ -41,8 +46,10 @@ export const viewport: Viewport = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html className={inter.variable} lang="pl">
-      <body>
-        <main>{props.children}</main>
+      <body className="flex min-h-dvh flex-col">
+        <Header />
+        <main className="grow">{props.children}</main>
+        <Footer />
       </body>
     </html>
   );

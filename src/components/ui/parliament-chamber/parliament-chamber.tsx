@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, use } from 'react';
+import { createContext, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
 import type { ChamberPlan } from './chamber-layout';
 import { chamberPlan } from './chamber-layout';
@@ -8,7 +8,7 @@ import { chamberPlan } from './chamber-layout';
 const ParliamentChamberContext = createContext<ChamberPlan | null>(null);
 
 const useParliamentChamber = () => {
-  const plan = use(ParliamentChamberContext);
+  const plan = useContext(ParliamentChamberContext);
 
   if (!plan) {
     throw new Error('useParliamentChamber must be used within a <ParliamentChamber />');

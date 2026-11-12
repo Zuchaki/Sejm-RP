@@ -4,6 +4,16 @@ import {
   ParliamentChamber,
   ParliamentChamberDeputy,
 } from '@/components/ui/parliament-chamber/parliament-chamber';
+import {
+  ZoomPan,
+  ZoomPanContent,
+  ZoomPanControls,
+  ZoomPanFreeControlToggle,
+  ZoomPanHint,
+  ZoomPanReset,
+  ZoomPanZoomIn,
+  ZoomPanZoomOut,
+} from '@/components/ui/zoom-pan';
 import { envoyPhotos } from '@/data/envoy-photos';
 import seatAssignments from '@/data/seat-assignments.json';
 import { getEnvoys } from '@/services/envoys';
@@ -32,31 +42,41 @@ export default async function HomePage() {
     <>
       <HeroSection />
       <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6">
-        <ParliamentChamber>
-          {envoys.map((envoy) => (
-            <ParliamentChamberDeputy
-              key={envoy.seatId}
-              seatId={envoy.seatId}
-              className={cn(
-                'border-2 border-party-niezrzeszeni',
-                clubStyles[envoy.club]?.dotClassName,
-                clubStyles[envoy.club]?.borderClassName,
-              )}
-            >
-              {envoy.envoyPhoto && (
-                <Image
-                  src={envoy.envoyPhoto.staticImage}
-                  alt={envoy.firstLastName}
-                  fill
-                  placeholder="blur"
-                  blurDataURL={envoy.envoyPhoto.blurPlaceholderImage}
-                  sizes="48px"
-                  className="object-cover hover:hidden"
-                />
-              )}
-            </ParliamentChamberDeputy>
-          ))}
-        </ParliamentChamber>
+        <ZoomPan>
+          <ZoomPanContent>
+            <ParliamentChamber>
+              {envoys.map((envoy) => (
+                <ParliamentChamberDeputy
+                  key={envoy.seatId}
+                  seatId={envoy.seatId}
+                  className={cn(
+                    'lg:border-2 border border-party-niezrzeszeni',
+                    clubStyles[envoy.club]?.dotClassName,
+                    clubStyles[envoy.club]?.borderClassName,
+                  )}
+                >
+                  {envoy.envoyPhoto && (
+                    <Image
+                      src={envoy.envoyPhoto.staticImage}
+                      alt={envoy.firstLastName}
+                      fill
+                      placeholder="blur"
+                      blurDataURL={envoy.envoyPhoto.blurPlaceholderImage}
+                      className="aspect-square h-full object-cover hover:hidden"
+                    />
+                  )}
+                </ParliamentChamberDeputy>
+              ))}
+            </ParliamentChamber>
+          </ZoomPanContent>
+          <ZoomPanHint />
+          <ZoomPanControls>
+            <ZoomPanZoomIn />
+            <ZoomPanZoomOut />
+            <ZoomPanReset />
+            <ZoomPanFreeControlToggle />
+          </ZoomPanControls>
+        </ZoomPan>
         <ClubLegend clubs={envoys.map((envoy) => envoy.club)} />
       </section>
       <FeaturesSection />

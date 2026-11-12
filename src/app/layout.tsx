@@ -10,6 +10,12 @@ const inter = Inter({
   display: 'swap',
 });
 
+const sans = Inter({
+  variable: '--font-sans',
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: 'Sejm RP — interaktywny przewodnik po Sejmie',
   description:
@@ -45,7 +51,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <html className={inter.variable} lang="pl">
+    <html className={`${inter.variable} ${sans.variable}`} lang="pl">
       <body className="flex min-h-dvh flex-col">
         <Header />
         <main className="grow">{props.children}</main>

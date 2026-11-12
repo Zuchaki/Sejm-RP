@@ -49,6 +49,17 @@ export const Footer = () => (
           .
         </Text>
         <Text variant="body-sm" className="text-pretty text-neutral-600">
+          Serwis jest projektem hobbystycznym i może zawierać błędne dane. Jeśli zauważysz błąd i
+          chcesz zgłosić potrzebę korekty, napisz do administratora:{' '}
+          <a
+            href="mailto:barteklegierski220@gmail.com"
+            className="font-medium text-primary-700 hover:underline"
+          >
+            barteklegierski220@gmail.com
+          </a>
+          .
+        </Text>
+        <Text variant="body-sm" className="text-pretty text-neutral-600">
           Domena sejmrp.pl należy do osoby prywatnej i nie jest domeną rządową.
         </Text>
       </div>

@@ -1,76 +1,92 @@
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+import { Cormorant_Garamond } from 'next/font/google';
 import Image from 'next/image';
+import FlagBanner from '@/assets/flagBanner.png';
 import HerbPolski from '@/assets/herbPolski.webp';
-import { buttonStyles } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
 
-const FACTS = [
-  { value: '460', label: 'posłów' },
-  { value: '41', label: 'okręgów wyborczych' },
-  { value: '4 lata', label: 'trwa kadencja' },
-];
+const displayFont = Cormorant_Garamond({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['500', '600'],
+  display: 'swap',
+});
+
+const flagClassName =
+  'absolute inset-y-0 hidden w-36 object-cover -top-6 object-top mask-b-from-60% mask-b-to-100% animate-in slide-in-from-top-full duration-1000 ease-out motion-reduce:animate-none lg:block xl:w-44';
 
 export const HeroSection = () => (
   <section className="relative overflow-hidden">
-    <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_at_top,var(--color-primary-100),transparent_65%)]" />
+    <Image
+      src={FlagBanner}
+      alt=""
+      priority
+      sizes="176px"
+      className={`${flagClassName} right-1/2 mr-80 xl:mr-88`}
+    />
+    <Image
+      src={FlagBanner}
+      alt=""
+      priority
+      sizes="176px"
+      className={`${flagClassName} left-1/2 ml-80 xl:ml-88`}
+    />
 
-    <div className="mx-auto flex max-w-3xl flex-col items-center px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-20">
+    <div className="relative mx-auto flex max-w-2xl flex-col items-center px-4 pt-16 pb-24 text-center sm:px-6 sm:pt-20">
       <Image
         src={HerbPolski}
         alt="Godło Rzeczypospolitej Polskiej"
         priority
-        className="h-28 w-auto drop-shadow-md sm:h-32"
+        className="h-28 w-auto animate-in drop-shadow-xl delay-300 duration-700 ease-out fill-mode-both zoom-in-90 fade-in motion-reduce:animate-none sm:h-36"
       />
 
-      <Text
-        as="span"
-        variant="caption"
-        className="mt-8 rounded-full border border-primary-200 bg-primary-50 px-3 py-1 text-primary-700"
+      <div className="mt-10 flex animate-in items-center gap-4 delay-500 duration-700 fill-mode-both fade-in motion-reduce:animate-none">
+        <span className="h-px w-10 bg-yellow-600/60" aria-hidden />
+        <Text as="span" variant="caption" className="tracking-widest text-neutral-500 uppercase">
+          X kadencja · 2023–2027
+        </Text>
+        <span className="h-px w-10 bg-yellow-600/60" aria-hidden />
+      </div>
+
+      <div className="mt-6 flex animate-in flex-col items-center delay-700 duration-700 ease-out fill-mode-both fade-in slide-in-from-bottom-3 motion-reduce:animate-none">
+        <Text
+          as="h1"
+          variant="h1"
+          className={`${displayFont.className} text-6xl font-semibold tracking-tight text-neutral-900 sm:text-8xl`}
+        >
+          Sejm
+        </Text>
+        <Text
+          as="p"
+          variant="body"
+          className={`${displayFont.className} mt-2 text-lg font-medium tracking-widest text-neutral-600 uppercase sm:text-2xl`}
+        >
+          Rzeczypospolitej Polskiej
+        </Text>
+      </div>
+
+      <div
+        className="mt-8 flex animate-in items-center gap-3 delay-1000 duration-500 ease-out fill-mode-both zoom-in-50 fade-in motion-reduce:animate-none"
+        aria-hidden
       >
-        X kadencja · 2023–2027
-      </Text>
+        <span className="h-px w-16 bg-linear-to-r from-transparent to-yellow-600/70" />
+        <span className="size-2 rotate-45 bg-red-700" />
+        <span className="h-px w-16 bg-linear-to-l from-transparent to-yellow-600/70" />
+      </div>
 
-      <Text as="h1" variant="h1" className="mt-5 text-balance sm:text-5xl">
-        Sejm Rzeczypospolitej Polskiej
-      </Text>
-
-      <Text className="mt-5 max-w-2xl text-pretty text-neutral-600 sm:text-lg">
+      <Text className="mt-8 max-w-xl animate-in text-pretty text-neutral-600 delay-1000 duration-700 fill-mode-both fade-in motion-reduce:animate-none sm:text-lg">
         Interaktywna mapa sali posiedzeń, profile posłów, wyniki głosowań i statystyki — wszystko,
         czego potrzebujesz, żeby zrozumieć pracę Sejmu, w jednym miejscu.
       </Text>
 
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href="#funkcje" className={buttonStyles()}>
+      <a
+        href="#funkcje"
+        className="mt-14 flex animate-in flex-col items-center gap-1 text-neutral-500 transition-colors delay-1000 animation-duration-1000 fill-mode-both fade-in hover:text-neutral-900 motion-reduce:animate-none"
+      >
+        <Text as="span" variant="caption">
           Poznaj funkcje
-          <ArrowRight className="size-4" aria-hidden />
-        </a>
-        <a
-          href="https://www.sejm.gov.pl"
-          target="_blank"
-          rel="noreferrer noopener"
-          className={buttonStyles({ variant: 'secondary' })}
-        >
-          Oficjalna strona Sejmu
-          <ExternalLink className="size-4" aria-hidden />
-        </a>
-      </div>
-
-      <dl className="mt-12 grid w-full grid-cols-3 divide-x divide-neutral-200 rounded-2xl border border-neutral-200 bg-white shadow-sm">
-        {FACTS.map((fact) => (
-          <div key={fact.label} className="flex flex-col-reverse gap-1 px-2 py-5">
-            <Text as="dt" variant="caption" className="text-neutral-500">
-              {fact.label}
-            </Text>
-            <Text
-              as="dd"
-              variant="stat"
-              className="text-2xl font-bold text-neutral-900 sm:text-stat"
-            >
-              {fact.value}
-            </Text>
-          </div>
-        ))}
-      </dl>
+        </Text>
+        <ChevronDown className="size-5" aria-hidden />
+      </a>
     </div>
   </section>
 );

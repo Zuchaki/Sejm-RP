@@ -33,14 +33,3 @@ export const getEnvoys = async () => {
 
   return z.array(envoySchema).parse(data);
 };
-
-export const getEnvoyPhoto = async (envoyId: number, options?: { size: 'full' | 'mini' }) => {
-  const photoUrls = apiSejmGovPl.sejm.term.mp.detail(envoyId);
-  const url = options?.size === 'mini' ? photoUrls.photoMini : photoUrls.photo;
-
-  const { data, headers } = await axios.get(url, { responseType: 'arraybuffer' });
-
-  const contentType = z.string().startsWith('image/').parse(headers['content-type']);
-
-  return `data:${contentType};base64,${Buffer.from(data).toString('base64')}`;
-};

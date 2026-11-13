@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import HerbPolski from '@/assets/herbPolski.webp';
+import EagleRedWhite from '@/assets/eagleRedWhiteWithAlfa.png';
+import { BrandName } from '@/components/brand-name';
 import { Container } from '@/components/ui/container';
-import { Text } from '@/components/ui/text';
 
 const NAV_LINKS = [
   { href: '#sejm', label: 'Sejm' },
@@ -13,15 +13,8 @@ export const Header = () => (
   <header className="sticky top-0 z-10 border-b border-neutral-200 bg-white/85 backdrop-blur">
     <Container className="flex h-16 items-center justify-between">
       <Link href="/" className="flex items-center gap-3">
-        <Image src={HerbPolski} alt="Godło Rzeczypospolitej Polskiej" className="h-9 w-auto" />
-        <span className="flex flex-col">
-          <Text as="span" variant="button" className="text-neutral-900">
-            Sejm RP
-          </Text>
-          <Text as="span" variant="caption" className="text-neutral-500">
-            Interaktywny przewodnik
-          </Text>
-        </span>
+        <Image src={EagleRedWhite} alt="" sizes="36px" className="h-9 w-auto" />
+        <BrandName />
       </Link>
 
       <nav aria-label="Nawigacja główna">

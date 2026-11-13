@@ -1,11 +1,12 @@
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Info } from 'lucide-react';
 import { Cormorant_Garamond } from 'next/font/google';
 import Image from 'next/image';
 import { cn } from 'tailwind-variants';
+import EagleRedWhite from '@/assets/eagleRedWhiteWithAlfa.png';
 import FlagBanner from '@/assets/flagBanner.png';
-import HerbPolski from '@/assets/herbPolski.webp';
 import { Container } from '@/components/ui/container';
 import { Text } from '@/components/ui/text';
+import { HemicyclePattern } from './hemicycle-pattern';
 
 const displayFont = Cormorant_Garamond({
   subsets: ['latin', 'latin-ext'],
@@ -33,12 +34,15 @@ export const HeroSection = () => (
       className={cn(flagClassName, 'left-1/2 ml-80 xl:ml-88')}
     />
 
-    <Container className="relative flex flex-col items-center pt-16 pb-24 text-center sm:pt-20">
+    <HemicyclePattern className="absolute top-6 left-1/2 z-0 w-3xl -translate-x-1/2 mask-b-from-50% mask-b-to-100% text-neutral-300 sm:top-10" />
+
+    <Container className="relative z-10 flex flex-col items-center pt-16 pb-24 text-center sm:pt-20">
       <Image
-        src={HerbPolski}
-        alt="Godło Rzeczypospolitej Polskiej"
+        src={EagleRedWhite}
+        alt="Biało-czerwony orzeł w koronie"
         priority
-        className="h-28 w-auto drop-shadow-xl sm:h-36"
+        sizes="(min-width: 640px) 176px, 144px"
+        className="h-36 w-auto sm:h-44"
       />
 
       <div className="mt-10 flex items-center gap-4">
@@ -78,10 +82,19 @@ export const HeroSection = () => (
         <span className="h-px w-16 bg-linear-to-l from-transparent to-yellow-600/70" />
       </div>
 
-      <Text className="mt-8 max-w-xl text-pretty text-neutral-600 sm:text-lg">
+      <Text variant="body-sm" className="mt-8 max-w-xl text-pretty text-neutral-600">
         Interaktywna mapa sali posiedzeń, profile posłów, wyniki głosowań i statystyki — wszystko,
         czego potrzebujesz, żeby zrozumieć pracę Sejmu, w jednym miejscu.
       </Text>
+
+      <div className="mt-6 flex max-w-xl items-start gap-2 rounded-lg border border-yellow-600/30 bg-white px-4 py-2 text-left text-neutral-700 shadow-sm">
+        <Info className="mt-0.5 size-4 shrink-0 text-yellow-700" aria-hidden />
+        <Text as="p" variant="body-sm" className="text-pretty">
+          <strong className="font-semibold text-neutral-900">Serwis nieoficjalny</strong>,
+          niezwiązany z Kancelarią Sejmu RP. To prywatny, hobbystyczny projekt. Dane pochodzą z
+          publicznego API Sejmu.
+        </Text>
+      </div>
 
       <a
         href="#funkcje"

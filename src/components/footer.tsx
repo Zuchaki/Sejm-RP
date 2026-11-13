@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import HerbPolski from '@/assets/herbPolski.webp';
+import EagleRedWhite from '@/assets/eagleRedWhiteWithAlfa.png';
+import { BrandName } from '@/components/brand-name';
 import { Container } from '@/components/ui/container';
 import { Text } from '@/components/ui/text';
 
@@ -8,10 +9,8 @@ export const Footer = () => (
     <Container className="flex flex-col gap-6 py-10">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <Image src={HerbPolski} alt="" className="h-8 w-auto" />
-          <Text as="span" variant="button" className="text-neutral-900">
-            Sejm RP
-          </Text>
+          <Image src={EagleRedWhite} alt="" sizes="32px" className="h-8 w-auto" />
+          <BrandName />
         </div>
         <Text variant="body-sm" className="text-neutral-500">
           Źródło danych:{' '}

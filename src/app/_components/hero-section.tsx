@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { cn } from 'tailwind-variants';
 import EagleRedWhite from '@/assets/eagleRedWhiteWithAlfa.png';
 import FlagBanner from '@/assets/flagBanner.png';
+import SejmDome from '@/assets/sejmDome.png';
+import SejmFacade from '@/assets/sejmFacade.png';
 import { Container } from '@/components/ui/container';
 import { Text } from '@/components/ui/text';
 import { HemicyclePattern } from './hemicycle-pattern';
@@ -14,8 +16,10 @@ const displayFont = Cormorant_Garamond({
   display: 'swap',
 });
 
+const buildingClassName = 'absolute bottom-1/3 hidden h-auto w-lg xl:block 2xl:w-2xl';
+
 const flagClassName =
-  'absolute inset-y-0 hidden w-36 object-cover -top-6 object-top mask-b-from-60% mask-b-to-100% lg:block xl:w-44';
+  'absolute inset-y-0 hidden w-44 object-cover -top-6 object-top mask-b-from-60% mask-b-to-100% lg:block xl:w-52';
 
 export const HeroSection = () => (
   <section className="relative overflow-hidden">
@@ -34,7 +38,20 @@ export const HeroSection = () => (
       className={cn(flagClassName, 'left-1/2 ml-80 xl:ml-88')}
     />
 
-    <HemicyclePattern className="absolute top-6 left-1/2 z-0 w-3xl -translate-x-1/2 mask-b-from-50% mask-b-to-100% text-neutral-300 sm:top-10" />
+    <Image
+      src={SejmDome}
+      alt=""
+      sizes="(min-width: 1536px) 672px, 512px"
+      className={cn(buildingClassName, 'left-0')}
+    />
+    <Image
+      src={SejmFacade}
+      alt=""
+      sizes="(min-width: 1536px) 672px, 512px"
+      className={cn(buildingClassName, 'right-0')}
+    />
+
+    <HemicyclePattern className="absolute top-6 left-1/2 z-0 hidden w-3xl -translate-x-1/2 mask-b-from-50% mask-b-to-100% text-neutral-300 sm:top-10 lg:flex" />
 
     <Container className="relative z-10 flex flex-col items-center pt-16 pb-24 text-center sm:pt-20">
       <Image

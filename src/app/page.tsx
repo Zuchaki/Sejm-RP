@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { cn } from 'tailwind-variants';
+import { Container } from '@/components/ui/container';
 import {
   ParliamentChamber,
   ParliamentChamberDeputy,
@@ -41,7 +42,7 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection />
-      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6">
+      <Container as="section" className="pb-12">
         <ZoomPan>
           <ZoomPanContent>
             <ParliamentChamber>
@@ -78,7 +79,7 @@ export default async function HomePage() {
           </ZoomPanControls>
         </ZoomPan>
         <ClubLegend clubs={envoys.map((envoy) => envoy.club)} />
-      </section>
+      </Container>
       <FeaturesSection />
     </>
   );

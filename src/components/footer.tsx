@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import HerbPolski from '@/assets/herbPolski.webp';
+import { Container } from '@/components/ui/container';
 import { Text } from '@/components/ui/text';
 
 export const Footer = () => (
   <footer className="border-t border-neutral-200 bg-white">
-    <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6">
+    <Container className="flex flex-col gap-6 py-10">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <Image src={HerbPolski} alt="" className="h-8 w-auto" />
@@ -63,6 +64,6 @@ export const Footer = () => (
           Domena sejmrp.pl należy do osoby prywatnej i nie jest domeną rządową.
         </Text>
       </div>
-    </div>
+    </Container>
   </footer>
 );

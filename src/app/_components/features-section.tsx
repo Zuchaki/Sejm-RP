@@ -1,4 +1,5 @@
 import { ChartColumn, LayoutGrid, Users, Vote } from 'lucide-react';
+import { Container } from '@/components/ui/container';
 import { Text } from '@/components/ui/text';
 
 const FEATURES = [
@@ -25,7 +26,7 @@ const FEATURES = [
 ];
 
 export const FeaturesSection = () => (
-  <section id="funkcje" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6">
+  <Container as="section" id="funkcje" className="scroll-mt-20 py-16">
     <div className="max-w-2xl">
       <Text as="span" variant="caption" className="tracking-wide text-primary-700 uppercase">
         Funkcje
@@ -63,5 +64,5 @@ export const FeaturesSection = () => (
         </li>
       ))}
     </ul>
-  </section>
+  </Container>
 );

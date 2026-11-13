@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import HerbPolski from '@/assets/herbPolski.webp';
+import { Container } from '@/components/ui/container';
 import { Text } from '@/components/ui/text';
 
 const NAV_LINKS = [
@@ -10,7 +11,7 @@ const NAV_LINKS = [
 
 export const Header = () => (
   <header className="sticky top-0 z-10 border-b border-neutral-200 bg-white/85 backdrop-blur">
-    <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <Container className="flex h-16 items-center justify-between">
       <Link href="/" className="flex items-center gap-3">
         <Image src={HerbPolski} alt="Godło Rzeczypospolitej Polskiej" className="h-9 w-auto" />
         <span className="flex flex-col">
@@ -37,6 +38,6 @@ export const Header = () => (
           ))}
         </ul>
       </nav>
-    </div>
+    </Container>
   </header>
 );
